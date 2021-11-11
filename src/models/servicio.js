@@ -1,22 +1,19 @@
 import mongoose, { Schema } from "mongoose";
 
-const servicioSchema = new Schema({
-  nombreServicio: {
+
+// esto tambien lo adapte al mail
+const mailSchema = new Schema({
+  email: {
     type: String,
-    maxlenght: 150,
-    required: true,
-    unique: true,
-  },
-  precioServicio: {
-    type: Number,
+    maxlenght: 40,
     required: true,
   },
-  categoria: {
+  servicio: {
     type: String,
     required: true,
   },
 });
 
-const Servicio = mongoose.model("Servicio", servicioSchema);
+const Mensaje = mongoose.model("Mensaje", mailSchema);
 
-export default Servicio;
+export default Mensaje;

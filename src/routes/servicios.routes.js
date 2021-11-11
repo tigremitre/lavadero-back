@@ -6,7 +6,7 @@ const router = Router();
 router
   .route("/")
   .get(lavaderoCtrl.listarServicio)
-  .post(lavaderoCtrl.crearServicio);
+  .post(lavaderoCtrl.guardarMail);
 
 router
   .route("/:id")

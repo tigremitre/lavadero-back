@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const url = "mongodb://localhost:27017/lavadero";
+const url = "mongodb+srv://tigre:tigretigre@cluster0.zoxcs.mongodb.net/lavadero?retryWrites=true&w=majority";
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 

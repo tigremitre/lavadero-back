@@ -1,4 +1,4 @@
-import Servicio from "../models/servicio";
+import Mensaje from "../models/servicio";
 
 const lavaderoCtrl = {};
 
@@ -6,27 +6,28 @@ lavaderoCtrl.getPrueba = (req, res) => {
   res.send("prueba desde el controlador");
 };
 
-lavaderoCtrl.crearServicio = async (req, res) => {
+
+//a esta fn la cambie para que se adapte al mail
+lavaderoCtrl.guardarMail = async (req, res) => {
   console.log(req.body);
   try {
-    const { nombreServicio, precioServicio, categoria } = req.body;
+    const { email, servicio } = req.body;
 
-    const servicioNuevo = new Servicio({
-      nombreServicio: nombreServicio,
-      precioServicio: precioServicio,
-      categoria: categoria,
+    const mailNuevo = new Mensaje({
+        email: email,
+        servicio: servicio
     });
 
-    await servicioNuevo.save();
+    await mailNuevo.save();
 
     res.status(201).json({
-      mensaje: "Servicio agregado a la BD",
+      mensaje: "Mail enviado correctamente",
     });
   } catch (error) {
     console.log(error);
 
     res.status(500).json({
-      mensaje: "Ocurrio un error al intentar guardar los datos",
+      mensaje: "Ocurrio un error al intentar mandar el mail",
     });
   }
 };
